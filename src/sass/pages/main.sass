@@ -1,0 +1,176 @@
+body
+	background-color: #EEEEF0
+	color: $font-color
+	padding: 20px
+
+.wrapper
+	display: grid
+	grid-template-columns: 280px auto
+	grid-template-rows: repeat(auto-fit, minmax(min-content, 1%))
+	// grid-auto-rows: minmax(min-content, max-content)
+	grid-gap: 20px
+	align-items: start
+	.cardme
+		grid-row: 1 / -1
+	.skills
+		grid-column: 2 / 3
+		grid-row: 2 / 2
+
+@media screen and (max-width: 940px)
+	.wrapper
+		grid-template-columns: minmax(280px, 1fr)
+
+.title
+	display: inline-block
+	padding-right: 80px
+	// padding-bottom: 6px
+	margin-bottom: 14px
+	font-size: 28px
+	font-weight: 700
+
+.subtitle
+	font-size: 18px
+	font-weight: 300
+
+.border
+	border: 1px solid $card-border
+	border-radius: 6px
+
+.border__bottom
+	border-bottom: 1px solid $card-border
+
+// Card me
+.cardme
+	background-color: #fff
+	padding: 20px
+	display: flex
+	flex-direction: column
+	max-width: 280px
+	.cardme__img, .cardme__links
+		text-align: center
+
+.cardme__body
+	margin-top: 20px
+
+.cardme__title
+	font-size: 18px
+	font-weight: 700
+
+.cardme__list
+	font-size: 16px
+	font-weight: 400
+	li
+		margin-top: 6px
+		border-bottom: 1px solid $card-border
+		span
+			font-weight: 500
+			margin-right: 4px
+	a
+		color: $accent
+		padding-bottom: 2px
+		transition: all 300ms
+		&:hover
+			// text-decoration: underline
+			border-bottom: 1px solid $accent
+
+.cardme__links
+	margin-top: 20px
+	svg
+		transition: all 300ms
+		&:first-child
+			margin-right: 20px
+		&:hover
+			fill: $accent
+
+
+// About
+
+.about
+	background-color: #fff
+	padding: 20px
+
+.about__text
+	margin-top: 6px
+	font-size: 18px
+	font-weight: 300
+
+
+// Skills
+
+.skills
+	display: grid
+	grid-template-columns: 1fr 1fr
+	grid-template-rows: 1fr
+	grid-gap: 20px
+
+@media screen and (max-width: 1400px)
+	.skills
+		grid-template-columns: 1fr
+		grid-template-rows: 1fr 1fr
+
+.skills__card
+	padding: 20px
+	background-color: #fff
+
+.items
+	display: grid
+	grid-template-columns: repeat(3, 1fr)
+	grid-template-rows: repeat(1, 1fr)
+	grid-gap: 20px
+
+.item__title
+	font-size: 18px
+	font-weight: 700
+	margin-bottom: 6px
+
+.item__levels
+	display: grid
+	grid-template-columns: repeat(3, minmax(40px, 1fr))
+	grid-template-rows: repeat(2, 1fr)
+	grid-gap: 10px
+
+.item__level
+	width: 40px
+	height: 6px
+	border-radius: 3px
+	background-color: $accent
+
+.item__level_grey
+	background-color: $card-border
+
+// Works
+.works
+	display: grid
+	grid-template-columns: 1fr 1fr 1fr
+	grid-template-rows: 200px 200px
+	grid-gap: 20px
+
+.section-header
+	padding: 20px
+	background-color: #fff
+
+.card-works
+	display: flex
+	flex-direction: column
+	justify-items: center
+	align-items: center
+	// text-align: center
+	padding: 20px
+	background-color: #fff
+	a, h6
+		font-size: 14px
+		font-weight: 400
+
+.card-works__link
+	color: $accent
+	&:hover
+		text-decoration: underline
+
+.card-works__title
+	margin: 20px 0
+
+.card-works__btn
+	padding: 8px 32px
+	background-color: $accent
+	border-radius: 6px
+	color: #fff
