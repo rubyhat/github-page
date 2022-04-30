@@ -1,11 +1,14 @@
+@import "./vars"
+@import "./layout"
+
 body
 	background-color: #EEEEF0
-	color: $font-color
+	color: #24292E
 	padding: 20px
 
 footer
 	padding: 20px
-	border-top: 1px solid $card-border
+	border-top: 1px solid #DADCE0
 	text-align: center
 	grid-column: 1 / -1
 
@@ -13,12 +16,10 @@ footer
 	display: grid
 	grid-template-areas: "footer"
 	grid-template-columns: 280px auto
-	grid-template-rows: repeat(auto-fit, minmax(min-content, 1%))
-	// grid-auto-rows: minmax(min-content, max-content)
+	// grid-template-rows: repeat(auto-fit, minmax(min-content, 1%))
 	grid-gap: 20px
 	align-items: start
 	.cardme
-		// grid-row: 1 / footer
 		grid-row-start: span 10
 
 
@@ -26,27 +27,39 @@ footer
 	.wrapper
 		grid-template-columns: minmax(280px, 1fr)
 
+@media screen and (max-width: 576px)
+	.wrapper
+		grid-template-columns: 1fr
+
 .title
 	display: inline-block
 	padding-right: 80px
-	// padding-bottom: 6px
 	margin-bottom: 14px
 	font-size: 28px
 	font-weight: 700
+	@media screen and (max-width: 576px)
+		font-size: 1.25rem
+		padding-right: 0
+		padding-bottom: 0.5rem
+		margin-bottom: .5rem	
 
 .subtitle
 	font-size: 18px
 	font-weight: 300
+	@media screen and (max-width: 576px)
+		font-size: 1rem
 
 .border
-	border: 1px solid $card-border
+	border: 1px solid #DADCE0
 	border-radius: 6px
 
 .border__bottom
-	border-bottom: 1px solid $card-border
+	border-bottom: 1px solid #DADCE0
 
 // Card me
 .cardme
+	position: sticky
+	top: 1rem
 	background-color: #fff
 	padding: 20px
 	display: flex
@@ -58,6 +71,7 @@ footer
 @media screen and (max-width: 940px)
 	.cardme
 		max-width: 100%
+		position: static
 
 .cardme__body
 	margin-top: 20px
@@ -71,17 +85,17 @@ footer
 	font-weight: 400
 	li
 		margin-top: 6px
-		border-bottom: 1px solid $card-border
+		border-bottom: 1px solid #DADCE0
 		span
 			font-weight: 500
 			margin-right: 4px
 	a
-		color: $accent
+		color: #6394E2
 		padding-bottom: 2px
 		transition: all 300ms
 		&:hover
 			// text-decoration: underline
-			border-bottom: 1px solid $accent
+			border-bottom: 1px solid #6394E2
 
 .cardme__links
 	margin-top: 20px
@@ -90,7 +104,7 @@ footer
 		&:first-child
 			margin-right: 20px
 		&:hover
-			fill: $accent
+			fill: #6394E2
 
 
 // About
@@ -100,9 +114,28 @@ footer
 	padding: 20px
 
 .about__text
-	margin-top: 6px
+	margin-bottom: 1rem
 	font-size: 18px
 	font-weight: 300
+	&:last-child
+		margin-bottom: 0
+
+.about-list
+	padding-left: 1.5rem
+	@media screen and (max-width: 576px)
+		padding-left: 0rem
+.about-list__item
+	display: flex
+	margin-bottom: 10px
+	&::before
+		content: "—"
+		display: block
+		margin-right: 0.35rem
+	a
+		color: #6394E2
+		margin-left: 0.25rem
+		&:hover
+			text-decoration: underline
 
 
 // Skills
@@ -136,11 +169,13 @@ footer
 
 	.skills__card
 		display: grid
-		justify-items: center
 
 	.items
 		grid-template-columns: repeat(auto-fill, 155px)
 		align-self: center
+
+	.items, .item
+		width: 100%
 
 
 .item__title
@@ -158,17 +193,19 @@ footer
 	width: 40px
 	height: 6px
 	border-radius: 3px
-	background-color: $accent
+	background-color: #6394E2
 
 .item__level_grey
-	background-color: $card-border
+	background-color: #DADCE0
 
 // Works
 .works
 	display: grid
 	grid-template-columns: 1fr 1fr 1fr
-	grid-template-rows: 200px 200px
+	grid-column: 2/3
 	grid-gap: 20px
+	@media screen and (max-width: 576px)
+		grid-column: 1/2
 
 @media screen and (max-width: 768px)
 	.works
@@ -177,6 +214,9 @@ footer
 .section-header
 	padding: 20px
 	background-color: #fff
+	grid-column: 2 / 3
+	@media screen and (max-width: 576px)
+		grid-column: 1/2
 
 .card-works
 	display: grid
@@ -192,19 +232,22 @@ footer
 		max-width: 232px
 
 .card-works__link
-	color: $accent
+	color: #6394E2
 	&:hover
 		text-decoration: underline
 		
 
 .card-works__title
 	margin: 20px 0
+	@media screen and (max-width: 576px)
+		margin-top: .5rem
+		margin-bottom: 1rem
 
 .card-works__btn
 	max-width: 144px
 	margin: 0 auto
 	padding: 8px 32px
-	background-color: $accent
+	background-color: #6394E2
 	border-radius: 6px
 	color: #fff
 
@@ -237,3 +280,23 @@ footer
 	color: #219653
 .card-works__btn_color-vue
 	background-color: #219653
+
+.card-works__link_color-roze
+	color: #ed2e38
+.card-works__btn_color-roze
+	background-color: #ed2e38
+
+.card-works__link_color-purple
+	color: #3F3474
+.card-works__btn_color-purple
+	background-color: #3F3474
+
+.card-works__link_color-pink
+	color: #f62c75
+.card-works__btn_color-pink
+	background-color: #f62c75
+	
+.card-works__link_color-fire
+	color: #00BFFF
+.card-works__btn_color-fire
+	background-color: #00BFFF
