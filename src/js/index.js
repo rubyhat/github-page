@@ -1,5 +1,5 @@
 import "../scss/index.sass";
 
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("hello world");
+  console.log("Hello :)");
 });
